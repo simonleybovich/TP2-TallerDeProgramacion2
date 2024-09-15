@@ -6,8 +6,8 @@ export default function readAndWriteFileSync(path){
         const lectura = fs.readFileSync(path, 'utf-8')
         
         let info = {
-            contenidoStr: JSON.stringify(lectura, null, '\t'),
-            contenidoObj: lectura,
+            contenidoStr: lectura,
+            contenidoObj: JSON.parse(lectura),
             size: fs.statSync(path).size
         }
 

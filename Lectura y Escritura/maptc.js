@@ -6,8 +6,8 @@ export default function readAndWriteFileAsyncPromises(path) {
   readFilePromise(path)
     .then((lectura) => {
       let info = {
-        contenidoStr: JSON.stringify(lectura, null, "\t"),
-        contenidoObj: lectura,
+        contenidoStr: lectura,
+        contenidoObj: JSON.parse(lectura),
         size: fs.statSync(path).size,
       };
 

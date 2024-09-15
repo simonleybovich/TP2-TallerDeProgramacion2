@@ -3,12 +3,12 @@ import fs from 'fs'
 export default function readAndWriteFileAsycnCallback(path){
     try {
         console.log('Inicio del programa Asincronico con callbacks')
-        fs.readFile(path, 'utf-8', (error, datos) => {
+        fs.readFile(path, 'utf-8', (error, lectura) => {
             if(error) throw Error(`Error en lectura asincronica con callbacks: ${error.message}`)
     
             let info = {
-                contenidoStr: JSON.stringify(datos, null, '\t'),
-                contenidoObj: datos,
+                contenidoStr: lectura,
+                contenidoObj: JSON.parse(lectura),
                 size: fs.statSync(path).size
             }
     

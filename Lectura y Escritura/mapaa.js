@@ -2,16 +2,16 @@ import fs from 'fs'
 
 export function readFilePromise(path) {
     return new Promise((resolve, reject) => {
-        fs.readFile(path,'utf-8', (error, datos) => {
+        fs.readFile(path,'utf-8', (error, lectura) => {
             if(error) reject(error)
-            else resolve(datos)
+            else resolve(lectura)
         })
     })
 }
 
-export function writeFilePromise(path, datos) {
+export function writeFilePromise(path, lectura) {
     return new Promise((resolve, reject) => {
-        fs.appendFile(path, datos, error => {
+        fs.appendFile(path, lectura, error => {
             if(error) reject(error)
             else resolve()
         })
@@ -23,8 +23,8 @@ export default async function readAndWriteFileAsyncPromises(path){
         let lectura = await readFilePromise(path)
 
         let info = {
-            contenidoStr: JSON.stringify(lectura, null, '\t'),
-            contenidoObj: lectura,
+            contenidoStr: lectura,
+            contenidoObj: JSON.parse(lectura),
             size: fs.statSync(path).size
         }
         
