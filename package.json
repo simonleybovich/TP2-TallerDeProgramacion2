@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "name": "tp2-filesystem-sincronico-y-asincronico",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "Simon Leybovich",
+  "license": "MIT"
+}
